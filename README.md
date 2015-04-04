@@ -24,7 +24,7 @@ ssh-add ~/.ssh/vagrant
 Next, download fleetctl. Make sure you are grabbing the same version as is running on the cluster you want to manage
 
 cd ~
-wget https://github.com/coreos/fleet/releases/download/v0.9.0/fleet-v0.9.0-linux-amd64.tar.gz
+wget https://github.com/coreos/fleet/releases/download/v0.9.2/fleet-v0.9.2-linux-amd64.tar.gz
 tar -zxvf fleet-v0.9.0-linux-amd64.tar.gz
 sudo ln -s ~/fleet-v0.9.0-linux-amd64/fleetctl /usr/local/bin/fleetctl
 
