@@ -1,12 +1,28 @@
 [Unit]
-Description=MyApp
-After=docker.service
+Description=A very annonying service
+
+# Requirements
 Requires=docker.service
 
+# Dependency ordering and binding
+After=docker.service
+
 [Service]
+# Let processes take as long as it needs to start up
 TimeoutStartSec=0
+
+# Pre startup
+# Directives with "=-" are allowed to fail without consequence
 ExecStartPre=-/usr/bin/docker kill busybox1
 ExecStartPre=-/usr/bin/docker rm busybox1
 ExecStartPre=/usr/bin/docker pull busybox
-ExecStart=/usr/bin/docker run --name busybox1 busybox /bin/sh -c "while true; do echo Hello there World; sleep 1; done"
+
+# Startup
+ExecStart=/usr/bin/docker run --name busybox1 busybox /bin/sh -c "\
+	while true; do \
+		echo Hello there World; \
+		sleep 1; \
+	done"
+
+# Stop
 ExecStop=/usr/bin/docker stop busybox1

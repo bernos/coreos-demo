@@ -101,6 +101,7 @@ vi /etc/confd/conf.d/nginx.toml
 ---- /etc/confd/conf.d/nginx.toml
 ----
 [template]
+# /etc/confd/conf.d/nginx.toml
 
 # The name of the template that will be used to render the application's configuration file
 # Confd will look in `/etc/conf.d/templates` for these files by default
@@ -128,6 +129,8 @@ vi /etc/confd/templates/nginx.tmpl
 ----
 ---- /etc/confd/templates/nginx.tmpl
 ----
+# /etc/confd/templates/nginx.tmpl
+
 upstream apache_pool {
 {{ range getvs "/services/apache/*" }}
     server {{ . }};
@@ -169,6 +172,8 @@ vi /usr/local/bin/confd-watch
 ---- /usr/local/bin/confd-watch
 ----
 #!/bin/bash
+
+# /usr/local/bin/confd-watch
 
 set -eo pipefail
 

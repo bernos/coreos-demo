@@ -1,0 +1,8 @@
+.reveal section img.no-border {
+	background: none;
+	border: none;
+}
+
+.reveal .small {
+	font-size: 0.75em;
+}
